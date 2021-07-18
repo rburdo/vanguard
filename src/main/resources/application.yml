@@ -1,0 +1,31 @@
+
+server:
+  servlet:
+    context-path: /open-weather-map
+  port: 8080
+
+spring:
+  application:
+    name: open-weather-map
+  datasource:
+    url:  jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+
+open-weather-map:
+  apiKeyParamName: appid
+  uriTemplate: https://api.openweathermap.org/data/2.5/weather?q={city},{country}&${open-weather-map.apiKeyParamName}={apiKey}
+  apiKeys: 88e78ec9cde8ac5c90657a4d7905cc01,
+    70e5beffd588f983389eb10dc263a80e,
+    39a4b8e8db3a07133ac343ef812227ab,
+    98090c2f69ae24311dbad92e3f3ca2af,
+    b0e16deeedf17b8ba5030b01d63a813a
+  requestsPerTimeUnit: 5
+  timeUnit: HOURS
+  responseMappings:
+    weatherDescription:  $.weather[0].description

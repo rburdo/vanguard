@@ -1,0 +1,10 @@
+
+# context-path is set to empty in unit tests due to a bug in WebTestClient
+# https://github.com/spring-projects/spring-boot/issues/24168
+server:
+  servlet:
+    context-path: /
+
+open-weather-map:
+  requestsPerTimeUnit: 3
+  timeUnit: SECONDS
