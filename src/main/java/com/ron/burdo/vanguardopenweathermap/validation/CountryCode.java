@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = CountryValidator.class)
 public @interface CountryCode {
 
-    String message() default "Country ${validatedValue} does not exist";
+    String message() default "Country code ${validatedValue} does not exist";
 
     Class<?>[] groups() default {};
 

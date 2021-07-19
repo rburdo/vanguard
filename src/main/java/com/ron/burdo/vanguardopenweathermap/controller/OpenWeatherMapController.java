@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Map;
 
 @Slf4j
@@ -35,7 +36,7 @@ public class OpenWeatherMapController {
     }
 
     @GetMapping(path = "/{country}/{city}")
-    public WeatherResponse getWeather(@PathVariable @NotBlank @CountryCode String country,
+    public WeatherResponse getWeather(@PathVariable @NotBlank @Size(max = 2) @CountryCode String country,
                                       @PathVariable @NotBlank String city,
                                       @RequestHeader(name = "api-key") @NotBlank String apiKey) {
         log.debug("Calling OpenWeatherMap for country = {}, city = {}",  country, city);

@@ -42,6 +42,7 @@ class VanguardOpenWeatherMapApplicationTest {
 		callWebTestClient("FR", "Paris", null, HttpStatus.BAD_REQUEST);
 		callWebTestClient("FR", "Paris", " ", HttpStatus.BAD_REQUEST);
 		callWebTestClient("XY", "Paris", properties.getApiKeys().get(0), HttpStatus.BAD_REQUEST);
+		callWebTestClient("France", "Paris", properties.getApiKeys().get(0), HttpStatus.BAD_REQUEST);
 		callWebTestClient("FR", "Paris", "12345", HttpStatus.BAD_REQUEST);
 		callWebTestClient(" ", "Paris", properties.getApiKeys().get(1), HttpStatus.BAD_REQUEST);
 		callWebTestClient("FR", " ", properties.getApiKeys().get(2), HttpStatus.BAD_REQUEST);
